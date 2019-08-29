@@ -32,15 +32,18 @@ namespace Calculator
             return result;
         }
 
-        public double Division(double devider, double devisor)
+        public double Divide(double divident, double divider)
         {
-            if (devisor != 0)
+            double result = 0;
+
+            if (divider != 0)
             {
-                return devider / devisor;
+                result = divident / divider;
+                return result;
             }
             else
             {
-                throw new ArgumentNullException("Devisor cannot be 0.0");
+                throw new InvalidOperationException("Divide by 0 error");
             }
         }
     }
