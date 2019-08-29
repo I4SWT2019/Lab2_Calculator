@@ -31,5 +31,20 @@ namespace Calculator
             double result = Math.Pow(x, exp);
             return result;
         }
+
+        public double Divide(double divident, double divider)
+        {
+            double result = 0;
+
+            if (divider != 0)
+            {
+                result = divident / divider;
+                return result;
+            }
+            else
+            {
+                throw new InvalidOperationException("Divide by 0 error");
+            }
+        }
     }
 }
