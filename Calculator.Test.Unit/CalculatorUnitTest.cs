@@ -73,5 +73,28 @@ namespace Calculator.Test.Unit
 
             Assert.That(uut.Divide(divident, divider),Is.EqualTo(result));
         }
+
+        [TestCase(1, 2, 3)]
+        [TestCase(2, 2, 0)]
+        [TestCase(5, 2, 10)]
+        [TestCase(2, 4, 16)]
+        public void TestingAccumulator_AllFourBasicOperations(double a, double b, double result)
+        {
+            result = uut.Add(a, b);
+
+            Assert.That(result, Is.EqualTo(uut.Accumulator));
+
+            result = uut.Subtract(2, 2);
+
+            Assert.That(result, Is.EqualTo(uut.Accumulator));
+
+            result = uut.Multiply(5, 2);
+
+            Assert.That(result, Is.EqualTo(uut.Accumulator));
+
+            result = uut.Power(2, 4);
+
+            Assert.That(result, Is.EqualTo(uut.Accumulator));
+        }
     }
 }
