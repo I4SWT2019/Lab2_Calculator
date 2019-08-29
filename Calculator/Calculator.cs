@@ -31,5 +31,17 @@ namespace Calculator
             double result = Math.Pow(x, exp);
             return result;
         }
+
+        public double Division(double devider, double devisor)
+        {
+            if (devisor != 0)
+            {
+                return devider / devisor;
+            }
+            else
+            {
+                throw new ArgumentNullException("Devisor cannot be 0.0");
+            }
+        }
     }
 }
