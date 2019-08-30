@@ -31,6 +31,15 @@ namespace Calculator.Test.Unit
         }
 
         [Test]
+        public void Add_TwoAddedToAccumulator_ResultCorrect()
+        {
+            double result = uut.Add(6, 4);
+            result = uut.Add(3);
+
+            Assert.That(result, Is.EqualTo(13));
+        }
+
+        [Test]
         public void Subtract_ThreeAndTwo_Return1()
         {
             // Arrange
@@ -60,6 +69,15 @@ namespace Calculator.Test.Unit
             result = uut.Multiply(4, 3);
             // Assert
             Assert.That(result,Is.EqualTo(12));
+        }
+
+        [Test]
+        public void Multiply_AccumulatorMultipliedByTwo_ResultCorrect()
+        {
+            double result = uut.Multiply(4, 3);
+            result = uut.Multiply(2);
+
+            Assert.That(result, Is.EqualTo(24));
         }
 
         [Test]
