@@ -23,7 +23,7 @@ namespace Calculator
 
         public double Subtract(double a)
         {
-            return Accumulator - a;
+            return Accumulator -= a;
         }
 
         public double Multiply(double a, double b)
