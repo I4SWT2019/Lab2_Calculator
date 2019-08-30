@@ -42,6 +42,16 @@ namespace Calculator.Test.Unit
         }
 
         [Test]
+        public void Subtract_4FromAccumulator_return4()
+        {
+            uut.Add(4, 4);
+
+            double result = uut.Subtract(4);
+
+            Assert.That(result, Is.EqualTo(4));
+        }
+
+        [Test]
         public void Multiply_FourAndThree_Return12()
         {
             // Arrange
