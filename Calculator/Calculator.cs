@@ -14,6 +14,7 @@ namespace Calculator
             get;
             private set;
         }
+
         public double Add(double a, double b)
         {
             return Accumulator = a + b;
