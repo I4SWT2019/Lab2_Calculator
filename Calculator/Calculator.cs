@@ -9,29 +9,29 @@ namespace Calculator
 {
     public class Calculator
     {
-        private static double result;
+        public double Accumulator
+        {
+            get;
+            private set;
+        }
         public double Add(double a, double b)
         {
-            result = a + b;
-            return result;
+            return Accumulator = a + b;
         }
 
         public double Subtract(double a, double b)
         {
-            result = a - b;
-            return result;
+            return Accumulator = a - b;
         }
 
         public double Multiply(double a, double b)
         {
-            result = a * b;
-            return result;
+            return Accumulator = a * b;
         }
 
         public double Power(double x, double exp)
         {
-            result = Math.Pow(x, exp);
-            return result;
+            return Accumulator = Math.Pow(x, exp);
         }
 
         public double Divide(double divident, double divider)
@@ -39,8 +39,7 @@ namespace Calculator
 
             if (divider != 0)
             {
-                result = divident / divider;
-                return result;
+                return Accumulator = divident / divider;
             }
             else
             {
@@ -48,17 +47,7 @@ namespace Calculator
             }
         }
 
-        public double Accumulator
-        {
-
-            get
-            {
-                double resultValue = result;
-                return resultValue;
-            }
-            //private omitted
-
-        }
+        
 
 
     }
