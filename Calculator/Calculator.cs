@@ -11,9 +11,19 @@ namespace Calculator
     {
         public double Accumulator { get; private set; } = 0;
 
+        public void Clear()
+        {
+            Accumulator = 0;
+        }
+
         public double Add(double a, double b)
         {
             return Accumulator = a + b;
+        }
+
+        public double Add(double addend)
+        {
+            return Accumulator += addend;
         }
 
         public double Subtract(double a, double b)
@@ -24,6 +34,11 @@ namespace Calculator
         public double Multiply(double a, double b)
         {
             return Accumulator = a * b;
+        }
+
+        public double Multiply(double multiplier)
+        {
+            return Accumulator *= multiplier;
         }
 
         public double Power(double x, double exp)
