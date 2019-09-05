@@ -93,6 +93,33 @@ namespace Calculator.Test.Unit
             Assert.That(result,Is.EqualTo(8));
         }
 
+        [Test]
+        public void Power_AccumulatorToThePowerOfTwo_ResultCorrect()
+        {
+            double result = uut.Power(2, 2);
+            result = uut.Power(2);
+
+            Assert.That(result, Is.EqualTo(16));
+        }
+
+        [Test]
+        public void Power_AccumulatorToThePowerOfZero_ResultCorrect()
+        {
+            double result = uut.Power(2, 2);
+            result = uut.Power(0);
+
+            Assert.That(result, Is.EqualTo(1));
+        }
+
+        [Test]
+        public void Power_AccumulatorToThePowerOfNegativeTwo_ResultCorrect()
+        {
+            double result = uut.Power(2, 2);
+            result = uut.Power(-2);
+
+            Assert.That(result, Is.EqualTo(0.0625));
+        }
+
         [TestCase(4, 2, 2)]
         [TestCase(2, 4, 0.5)]
         [TestCase(4, 4, 1)]
