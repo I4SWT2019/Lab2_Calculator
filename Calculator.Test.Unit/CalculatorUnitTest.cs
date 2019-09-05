@@ -30,14 +30,19 @@ namespace Calculator.Test.Unit
             Assert.That(result, Is.EqualTo(5));
         }
 
-        [Test]
-        public void Add_ThreeAddedToAccumulator_ResultCorrect()
+        [TestCase(5, 8, 13)]
+        [TestCase(9, 2, 11)]
+        [TestCase(5, -2, 3)]
+        [TestCase(-6, 3, -3)]
+        [TestCase(-7, -8, -15)]
+        [TestCase(19, 0, 19)]
+        [TestCase(0, 812, 812)]
+        [TestCase(0, 0, 0)]
+        public void Add_AddNumbers_ResultIsCorrect(double a, double b, double result)
         {
-            double result = uut.Add(6, 4);
-            result = uut.Add(3);
-
-            Assert.That(result, Is.EqualTo(13));
+            Assert.That(uut.Add(a,b),Is.EqualTo(result));
         }
+
 
         [Test]
         public void Subtract_ThreeAndTwo_Return1()
@@ -137,7 +142,51 @@ namespace Calculator.Test.Unit
         public void Divide_DivideByZero_ThrowsException()
         {
             Assert.Throws<InvalidOperationException>(() => uut.Divide(4,0));
+        }
+
+        [Test]
+        public void DivideAccumulated_DivideByZero_ThrowsException()
+        {
             Assert.Throws<InvalidOperationException>(() => uut.Divide(0));
+        }
+
+        [Test]
+        public void SquareRoot_SquarerootOfNegativeNumber_ThrowsException()
+        {
+            Assert.Throws<InvalidOperationException>(() => uut.SquareRoot(-9));
+        }
+
+        [Test]
+        public void SquareRoot_SquarerootOfNegativeAccumulator_ThrowsException()
+        {
+            uut.Subtract(7, 9);
+
+            Assert.Throws<InvalidOperationException>(() => uut.SquareRoot());
+        }
+
+        [Test]
+        public void SquareRoot_SquarerootOfNine_ResultCorrect()
+        {
+            double result = uut.SquareRoot(9);
+
+            Assert.That(result, Is.EqualTo(3));
+        }
+
+        [Test]
+        public void SquareRoot_SquarerootOfDecimalNumber_ResultCorrect()
+        {
+            double result = uut.SquareRoot(6.25);
+
+            Assert.That(result, Is.EqualTo(2.5));
+        }
+
+        [Test]
+        public void SquareRoot_SquarerootOverloadedOperator_ResultCorrect()
+        {
+            double result = uut.SquareRoot(81);
+            result = uut.SquareRoot();
+
+            Assert.That(result, Is.EqualTo(3));
         }
 
         [TestCase(1, 2, 3)]
