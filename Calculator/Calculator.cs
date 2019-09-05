@@ -69,7 +69,31 @@ namespace Calculator
             }
         }
 
-        
+        public double SquareRoot(double x)
+        {
+            if (x >= 0)
+            {
+                return Accumulator = Math.Sqrt(x);
+            }
+            else
+            {
+                throw new InvalidOperationException("Squareroot of negative number not possible");
+            }
+        }
+
+        public double SquareRoot()
+        {
+            if (Accumulator >= 0)
+            {
+                return Accumulator = Math.Sqrt(Accumulator);
+            }
+            else
+            {
+                throw new InvalidOperationException("Squareroot of negative number not possible");
+            }
+        }
+
+
 
 
     }

@@ -161,6 +161,45 @@ namespace Calculator.Test.Unit
             Assert.Throws<InvalidOperationException>(() => uut.Divide(4,0));
         }
 
+        [Test]
+        public void SquareRoot_SquarerootOfNegativeNumber_ThrowsException()
+        {
+            Assert.Throws<InvalidOperationException>(() => uut.SquareRoot(-9));
+        }
+
+        [Test]
+        public void SquareRoot_SquarerootOfNegativeAccumulator_ThrowsException()
+        {
+            uut.Subtract(7, 9);
+
+            Assert.Throws<InvalidOperationException>(() => uut.SquareRoot());
+        }
+
+        [Test]
+        public void SquareRoot_SquarerootOfNine_ResultCorrect()
+        {
+            double result = uut.SquareRoot(9);
+
+            Assert.That(result, Is.EqualTo(3));
+        }
+
+        [Test]
+        public void SquareRoot_SquarerootOfDecimalNumber_ResultCorrect()
+        {
+            double result = uut.SquareRoot(6.25);
+
+            Assert.That(result, Is.EqualTo(2.5));
+        }
+
+        [Test]
+        public void SquareRoot_SquarerootOverloadedOperator_ResultCorrect()
+        {
+            double result = uut.SquareRoot(81);
+            result = uut.SquareRoot();
+
+            Assert.That(result, Is.EqualTo(3));
+        }
+
         [TestCase(1, 2, 3)]
         [TestCase(2, 2, 0)]
         [TestCase(5, 2, 10)]
