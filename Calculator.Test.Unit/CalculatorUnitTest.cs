@@ -31,7 +31,7 @@ namespace Calculator.Test.Unit
         }
 
         [Test]
-        public void Add_TwoAddedToAccumulator_ResultCorrect()
+        public void Add_ThreeAddedToAccumulator_ResultCorrect()
         {
             double result = uut.Add(6, 4);
             result = uut.Add(3);
