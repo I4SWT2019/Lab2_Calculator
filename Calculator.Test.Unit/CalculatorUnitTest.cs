@@ -60,16 +60,18 @@ namespace Calculator.Test.Unit
             Assert.That(result, Is.EqualTo(4));
         }
 
-        [Test]
-        public void Multiply_FourAndThree_Return12()
+        [TestCase(2, 3, 6)]
+        [TestCase(-4, 3, -12)]
+        [TestCase(5, -2, -10)]
+        [TestCase(-4, -4, 16)]
+        [TestCase(8, 0, 0)]
+        [TestCase(0, 19, 0)]
+        [TestCase(0, 0, 0)]
+        public void Multiply_MultiplyNumbers_ResultCorrect(double a, double b, double result)
         {
-            // Arrange
-            double result = 0;
-            // Act
-            result = uut.Multiply(4, 3);
-            // Assert
-            Assert.That(result,Is.EqualTo(12));
+            Assert.That(uut.Multiply(a,b),Is.EqualTo(result));
         }
+
 
         [Test]
         public void Multiply_AccumulatorMultipliedByTwo_ResultCorrect()
@@ -89,6 +91,33 @@ namespace Calculator.Test.Unit
             result = uut.Power(2, 3);
             // Assert
             Assert.That(result,Is.EqualTo(8));
+        }
+
+        [Test]
+        public void Power_AccumulatorToThePowerOfTwo_ResultCorrect()
+        {
+            double result = uut.Power(2, 2);
+            result = uut.Power(2);
+
+            Assert.That(result, Is.EqualTo(16));
+        }
+
+        [Test]
+        public void Power_AccumulatorToThePowerOfZero_ResultCorrect()
+        {
+            double result = uut.Power(2, 2);
+            result = uut.Power(0);
+
+            Assert.That(result, Is.EqualTo(1));
+        }
+
+        [Test]
+        public void Power_AccumulatorToThePowerOfNegativeTwo_ResultCorrect()
+        {
+            double result = uut.Power(2, 2);
+            result = uut.Power(-2);
+
+            Assert.That(result, Is.EqualTo(0.0625));
         }
 
         [TestCase(4, 2, 2)]
