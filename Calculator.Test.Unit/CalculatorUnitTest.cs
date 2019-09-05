@@ -30,14 +30,19 @@ namespace Calculator.Test.Unit
             Assert.That(result, Is.EqualTo(5));
         }
 
-        [Test]
-        public void Add_ThreeAddedToAccumulator_ResultCorrect()
+        [TestCase(5, 8, 13)]
+        [TestCase(9, 2, 11)]
+        [TestCase(5, -2, 3)]
+        [TestCase(-6, 3, -3)]
+        [TestCase(-7, -8, -15)]
+        [TestCase(19, 0, 19)]
+        [TestCase(0, 812, 812)]
+        [TestCase(0, 0, 0)]
+        public void Add_AddNumbers_ResultIsCorrect(double a, double b, double result)
         {
-            double result = uut.Add(6, 4);
-            result = uut.Add(3);
-
-            Assert.That(result, Is.EqualTo(13));
+            Assert.That(uut.Add(a,b),Is.EqualTo(result));
         }
+
 
         [Test]
         public void Subtract_ThreeAndTwo_Return1()
