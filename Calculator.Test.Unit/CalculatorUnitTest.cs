@@ -93,6 +93,7 @@ namespace Calculator.Test.Unit
             Assert.That(result,Is.EqualTo(8));
         }
 
+
         [Test]
         public void Power_AccumulatorToThePowerOfTwo_ResultCorrect()
         {
@@ -120,42 +121,17 @@ namespace Calculator.Test.Unit
             Assert.That(result, Is.EqualTo(0.0625));
         }
 
+
         [TestCase(4, 2, 2)]
         [TestCase(2, 4, 0.5)]
-        [TestCase(4, 4, 1)]
-        [TestCase(0, 4, 0)]
-        public void Divide_TwoPositiveNumbers_ResultIsCorrect(double divident, double divider, double result)
-        {
-            Assert.That(uut.Divide(divident, divider),Is.EqualTo(result));
-        }
-
-        [TestCase(4, -2, -2)]
-        [TestCase(2, -4, -0.5)]
-        [TestCase(4, -4, -1)]
-        [TestCase(0, -4, 0)]
-        public void Divide_PositiveDividentAndNegativeDivider_ResultIsCorrect(double divident, double divider, double result)
+        [TestCase(6, -3, -2)]
+        [TestCase(-8, 4, -2)]
+        [TestCase(-10, -10, 1)]
+        [TestCase(0, 2, 0)]
+        public void Divide_DivideNumbers_ResultIsCorrect(double divident, double divider, double result)
         {
             Assert.That(uut.Divide(divident, divider), Is.EqualTo(result));
         }
-
-        [TestCase(-4, 2, -2)]
-        [TestCase(-2, 4, -0.5)]
-        [TestCase(-4, 4, -1)]
-        [TestCase(-0, 4, -0)]
-        public void Divide_NegativeDividentAndPositiveDivider_ResultIsCorrect(double divident, double divider, double result)
-        {
-            Assert.That(uut.Divide(divident, divider), Is.EqualTo(result));
-        }
-
-        [TestCase(-4, -2, 2)]
-        [TestCase(-2, -4, 0.5)]
-        [TestCase(-4, -4, 1)]
-        [TestCase(-0, -4, 0)]
-        public void Divide_TwoNegativeNumbers_ResultIsCorrect(double divident, double divider, double result)
-        {
-            Assert.That(uut.Divide(divident, divider), Is.EqualTo(result));
-        }
-
 
         [Test]
         public void Divide_DivideByZero_ThrowsException()
