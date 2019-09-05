@@ -137,6 +137,7 @@ namespace Calculator.Test.Unit
         public void Divide_DivideByZero_ThrowsException()
         {
             Assert.Throws<InvalidOperationException>(() => uut.Divide(4,0));
+            Assert.Throws<InvalidOperationException>(() => uut.Divide(0));
         }
 
         [TestCase(1, 2, 3)]
