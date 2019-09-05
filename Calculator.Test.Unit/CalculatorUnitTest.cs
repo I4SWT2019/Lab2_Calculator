@@ -60,16 +60,18 @@ namespace Calculator.Test.Unit
             Assert.That(result, Is.EqualTo(4));
         }
 
-        [Test]
-        public void Multiply_FourAndThree_Return12()
+        [TestCase(2, 3, 6)]
+        [TestCase(-4, 3, -12)]
+        [TestCase(5, -2, -10)]
+        [TestCase(-4, -4, 16)]
+        [TestCase(8, 0, 0)]
+        [TestCase(0, 19, 0)]
+        [TestCase(0, 0, 0)]
+        public void Multiply_MultiplyNumbers_ResultCorrect(double a, double b, double result)
         {
-            // Arrange
-            double result = 0;
-            // Act
-            result = uut.Multiply(4, 3);
-            // Assert
-            Assert.That(result,Is.EqualTo(12));
+            Assert.That(uut.Multiply(a,b),Is.EqualTo(result));
         }
+
 
         [Test]
         public void Multiply_AccumulatorMultipliedByTwo_ResultCorrect()

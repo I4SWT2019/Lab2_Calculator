@@ -63,9 +63,5 @@ namespace Calculator
                 throw new InvalidOperationException("Divide by 0 error");
             }
         }
-
-        
-
-
     }
 }
