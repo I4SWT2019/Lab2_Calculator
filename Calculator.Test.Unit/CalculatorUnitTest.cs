@@ -109,6 +109,31 @@ namespace Calculator.Test.Unit
             Assert.That(uut.Divide(divident, divider), Is.EqualTo(result));
         }
 
+        [TestCase(-4, 2, -2)]
+        [TestCase(-2, 4, -0.5)]
+        [TestCase(-4, 4, -1)]
+        [TestCase(-0, 4, -0)]
+        public void Divide_NegativeDividentAndPositiveDivider_ResultIsCorrect(double divident, double divider, double result)
+        {
+            Assert.That(uut.Divide(divident, divider), Is.EqualTo(result));
+        }
+
+        [TestCase(-4, -2, 2)]
+        [TestCase(-2, -4, 0.5)]
+        [TestCase(-4, -4, 1)]
+        [TestCase(-0, -4, 0)]
+        public void Divide_TwoNegativeNumbers_ResultIsCorrect(double divident, double divider, double result)
+        {
+            Assert.That(uut.Divide(divident, divider), Is.EqualTo(result));
+        }
+
+
+        [Test]
+        public void Divide_DivideByZero_ThrowsException()
+        {
+            Assert.Throws<InvalidOperationException>(() => uut.Divide(4,0));
+        }
+
         [TestCase(1, 2, 3)]
         [TestCase(2, 2, 0)]
         [TestCase(5, 2, 10)]
