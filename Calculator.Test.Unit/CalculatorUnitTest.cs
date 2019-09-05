@@ -183,5 +183,19 @@ namespace Calculator.Test.Unit
 
             Assert.That(result, Is.EqualTo(1));
         }
+
+        [TestCase(2, 2, 0)]
+        [TestCase(2, -2, 4)]
+        [TestCase(-2, 2, -4)]
+        [TestCase(-2, -2, 0)]
+        [TestCase(0, 2, -2)]
+        [TestCase(0, -2, 2)]
+        [TestCase(2, 0, 2)]
+        [TestCase(-2, 0, -2)]
+        [TestCase(0, 0, 0)]
+        public void Subtract_AllPosibilities_ResultIsCorrect(double a, double b, double result)
+        {
+            Assert.That(uut.Subtract(a, b), Is.EqualTo(result));
+        }
     }
 }
