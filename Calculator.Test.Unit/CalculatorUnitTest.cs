@@ -120,7 +120,7 @@ namespace Calculator.Test.Unit
 
         [TestCase(-4, -2, 2)]
         [TestCase(-2, -4, 0.5)]
-        [TestCase(-4, -4, -1)]
+        [TestCase(-4, -4, 1)]
         [TestCase(-0, -4, 0)]
         public void Divide_TwoNegativeNumbers_ResultIsCorrect(double divident, double divider, double result)
         {
