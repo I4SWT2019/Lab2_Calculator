@@ -64,7 +64,17 @@ namespace Calculator
             }
         }
 
-        
+        public double Divide(double divider)
+        {
+            if (divider != 0)
+            {
+                return (Accumulator /= divider);
+            }
+            else
+            {
+                throw new InvalidOperationException("Divide by 0 error");
+            }
+        }
 
 
     }
