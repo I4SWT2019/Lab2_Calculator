@@ -161,5 +161,26 @@ namespace Calculator.Test.Unit
 
             Assert.That(result, Is.EqualTo(uut.Accumulator));
         }
+
+
+        [TestCase(2, 4)]
+        [TestCase(2, 2)]
+        [TestCase(2, 1)]
+        public void AccumulatorDivide_PositiveNumbers_returnPositive(double divider, double result)
+        {
+            uut.Add(4, 4);
+
+            result = uut.Divide( 2);
+
+            Assert.That(result, Is.EqualTo(4));
+
+            result = uut.Divide(2);
+
+            Assert.That(result, Is.EqualTo(2));
+
+            result = uut.Divide(2);
+
+            Assert.That(result, Is.EqualTo(1));
+        }
     }
 }
